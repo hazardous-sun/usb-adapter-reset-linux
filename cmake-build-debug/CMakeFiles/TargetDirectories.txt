@@ -1,0 +1,3 @@
+/home/solaire/CLionProjects/usb_reset/cmake-build-debug/CMakeFiles/usb_reset.dir
+/home/solaire/CLionProjects/usb_reset/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/solaire/CLionProjects/usb_reset/cmake-build-debug/CMakeFiles/rebuild_cache.dir
