@@ -2,7 +2,7 @@
 
 log_file="reset_script.log"
 max_size=$((100*1024)) # 100 KB in bytes
-lines_to_remove=625
+lines_to_remove=$1
 
 # Check if the log file exists
 if [ ! -f "$log_file" ]; then
@@ -22,6 +22,5 @@ if [ "$file_size" -gt "$max_size" ]; then
     mv "$log_file.tmp" "$log_file"
 
     echo "Removed the first $lines_to_remove lines from $log_file."
-else
-    echo "Log file size is not larger than 100 KB."
+    exit 1
 fi
