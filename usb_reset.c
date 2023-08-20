@@ -16,6 +16,7 @@ int main(int argc, char **argv) {
     int fd;
     int rc;
 
+    // No path provided
     if (argc != 2) {
         fprintf(stderr, "Usage: usbreset device-filename\n");
         return 1;
@@ -26,14 +27,14 @@ int main(int argc, char **argv) {
     fd = open(filename, O_WRONLY);
     if (fd < 0) {
         perror("Error opening output file");
-        return 1;
+        return 2;
     }
 
     printf("Resetting USB device %s\n", filename);
     rc = ioctl(fd, USBDEVFS_RESET, 0);
     if (rc < 0) {
         perror("Error in ioctl");
-        return 1;
+        return 3;
     }
     printf("Reset successful\n");
 
