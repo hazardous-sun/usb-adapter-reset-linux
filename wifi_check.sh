@@ -14,5 +14,5 @@ while true; do
   else
       echo "$(date): A connected device was found." >> "$LOG_FILE"
   fi
-  sleep 120 # Wait for 30 seconds
+  sleep 120 # Wait for 120 seconds
 done
