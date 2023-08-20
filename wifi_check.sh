@@ -43,5 +43,5 @@ while true; do
     *) echo "$(date): Unknown error occurred" >> "$LOG_FILE" ;;
   esac
 
-#  sleep 1 # Wait for 2 minutes
+  sleep 120 # Wait for 2 minutes
 done
