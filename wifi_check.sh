@@ -3,7 +3,9 @@
 # Define paths
 SCRIPT_DIR=$(dirname "$0")
 USB_RESET_SCRIPT="$SCRIPT_DIR/usb_reset"
-USB_PATH="/dev/bus/usb/001/003"
+CURRENT_USB_BUS=$(lsusb | grep RTL88x2bu | awk '{print $2}')
+CURRENT_USB_PORT=$(lsusb | grep RTL88x2bu | awk '{print $4}')
+USB_PATH="/dev/bus/usb/$CURRENT_USB_BUS/$CURRENT_USB_PORT"
 LOG_FILE="$SCRIPT_DIR/reset_script.log"
 
 while true; do
