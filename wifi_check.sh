@@ -35,7 +35,7 @@ while true; do
   fi
 
   LINES_TO_REMOVE=615
-  bash "$LOG_REDUCE_SCRIPT" LINES_TO_REMOVE  # LINES_TO_REMOVE needs to be passed with the script
+  bash "$LOG_REDUCE_SCRIPT" "$LINES_TO_REMOVE"  # LINES_TO_REMOVE needs to be passed with the script
   case $? in
     0) echo "Log file size is not larger than 100 KB." ;;
     1) echo "$(date): Removed the first $LINES_TO_REMOVE lines from $LOG_FILE" >> "$LOG_FILE" ;;
