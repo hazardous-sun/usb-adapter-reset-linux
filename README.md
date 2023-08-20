@@ -6,9 +6,9 @@ This script was developed as a workaround for a USB Wi-Fi adapter that was not w
 
 ### Configuration
 
-This is not a smart script, it does not check what is the port that is holding the adapter, it just checks if there is a Wi-Fi connection established and if there is not, restarts a hard-coded USB port (it works).
+The bash script checks for a specified USB device name that can be edited in the variable CURRENT_USB_BUS and CURRENT_USB_PORT inside [wifi_check.sh](wifi_check.sh).
 
-You can add it to the list of processes that boot with the computer using the following steps:
+You can add the script to the list of processes that boot with the computer using the following steps:
 
 Insert the following code inside `/etc/systemd/system/wifi_reset.service`:
 
