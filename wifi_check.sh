@@ -9,6 +9,7 @@ while true; do
   CURRENT_USB_PORT=$(lsusb | grep RTL88x2bu | awk '{print $4}')
   USB_PATH="/dev/bus/usb/$CURRENT_USB_BUS/$CURRENT_USB_PORT"
   LOG_FILE="$SCRIPT_DIR/reset_script.log"
+  LOG_REDUCE_SCRIPT="$SCRIPT_DIR/reduce_log.sh"
 
   # Get WiFi device status
   wifi_status=$(nmcli device show wlx90de80ae8d61 | awk -F": " '/GENERAL.STATE/ {gsub(/^[ \t]+|[()0-9]+/,"",$2); sub(/^[ \t]+/, "", $2); print $2}')
@@ -21,6 +22,8 @@ while true; do
   else
     echo "$(date): No WiFi device found on $USB_PATH" >> "$LOG_FILE"
   fi
+
+  bash "$LOG_REDUCE_SCRIPT"
 
   sleep 120 # Wait for 2 minutes
 done
