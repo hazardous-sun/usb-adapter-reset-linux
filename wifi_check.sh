@@ -23,6 +23,13 @@ while true; do
     echo "$(date): A WiFi device was found, but it is disconnected. Running usb_reset..." >> "$LOG_FILE"
     echo "CURRENT_USB_BUS=$CURRENT_USB_BUS | CURRENT_USB_PORT=$CURRENT_USB_PORT"
     "$USB_RESET_SCRIPT" "$USB_PATH"
+    case $? in
+          0) echo "$(date): Reset successful" >> "$LOG_FILE" ;;
+          1) echo "$(date): ERROR no path provided" >> "$LOG_FILE" ;;
+          2) echo "$(date): ERROR on opening output file" >> "$LOG_FILE" ;;
+          3) echo "$(date): ERROR in ioctl" >> "$LOG_FILE" ;;
+          *) echo "$(date): Unknown error occurred" >> "$LOG_FILE" ;;
+        esac
   else
     echo "$(date): No WiFi device found on $USB_PATH" >> "$LOG_FILE"
   fi
