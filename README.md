@@ -2,7 +2,7 @@
 
 This script was developed as a workaround for a USB Wi-Fi adapter that was not working properly and got back to work when disconnected and reconnected.
 
-**Only tested on GNU/Linux Debian based distros.
+**Only tested on GNU/Linux Debian based distros.**
 
 ### Configuration
 
@@ -39,3 +39,8 @@ sudo systemctl status wifi_reset.service
 ```
 
 Finally, remember to reboot the computer afterward to ensure it was correctly added to the booting processes list.
+
+
+### Automatically reducing the log
+
+The [reduce_log.sh](reduce_log.sh) script is used to remove a specific amount of lines from the log file in order to ensure it does not get too big. Per standard behavior, it checks if the log file is bigger than 100 KB and if it is it removes the first 615 lines of the log (close to 50 KB of data).
