@@ -1,8 +1,8 @@
 #!/bin/bash
 
-log_file="reset_script.log"
 max_size=$((100*1024)) # 100 KB in bytes
 lines_to_remove=$1
+log_file=$2
 
 # Check if the log file exists
 if [ ! -f "$log_file" ]; then
@@ -20,5 +20,5 @@ if [ "$file_size" -gt "$max_size" ]; then
     # Remove the first lines_to_remove lines from the log file
     tail -n +$((lines_to_remove+1)) "$log_file" > "$log_file.tmp"
     mv "$log_file.tmp" "$log_file"
-    exit 1
+    exit 2
 fi
