@@ -19,5 +19,5 @@ while true; do
     echo "$(date): No WiFi device found on $USB_PATH" >> "$LOG_FILE"
   fi
 
-  sleep 10 # Wait for 2 minutes
+  sleep 120 # Wait for 2 minutes
 done
