@@ -8,13 +8,12 @@ LOG_FILE="$SCRIPT_DIR/reset_script.log"
 
 while true; do
   # Run nmcli command and check for "disconnected" keyword
-  if nmcli device | grep -q "disconnected"; then
+  if nmcli device | grep 'wifi' -q | awk '$3 == "disconnected" { print $3 }' == "disconected"; then
       echo "$(date): A connected device was found, but it is disconnected. Running usb_reset..." >> "$LOG_FILE"
             "$USB_RESET_SCRIPT" "$USB_PATH"
   # Run nmcli command and check for "unavailable" keyword
-  elif nmcli device | grep -q "unavailable"; then
-      echo "$(date): No connected device found. Running usb_reset..." >> "$LOG_FILE"
-      "$USB_RESET_SCRIPT" "$USB_PATH"
+  elif nmcli device | grep 'wifi' -q | awk '$3 == "unavailable" { print $3 }' == "unavailable"; then
+      echo "$(date): No connected device found on $USB_PATH" >> "$LOG_FILE"
   else
       echo "$(date): A connected device was found." >> "$LOG_FILE"
   fi
