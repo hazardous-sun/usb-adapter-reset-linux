@@ -4,11 +4,21 @@ This script was developed as a workaround for a USB Wi-Fi adapter that was not w
 
 **Only tested on GNU/Linux Debian based distros.**
 
-### Configuration
+## Configuration
 
 The bash script checks for a specified USB device name that can be edited in the variable CURRENT_USB_BUS and CURRENT_USB_PORT inside [wifi_check.sh](wifi_check.sh).
 
-You can add the script to the list of processes that boot with the computer using the following steps:
+### Add it to the CLI commands
+
+Run the following command to add the script to your CLI:
+
+`sudo mv adapter_reset.sh /bin/`
+
+Now you can type "adapter", press Tab and the CLI will autofill the command.
+
+**Please note that the name of the adapter inside the script might need to be adjusted.**
+
+### Configure it to boot with the computer
 
 Insert the following code inside `/etc/systemd/system/wifi_reset.service`:
 
