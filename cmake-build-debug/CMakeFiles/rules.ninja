@@ -42,7 +42,7 @@ rule CUSTOM_COMMAND
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /snap/clion/248/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/solaire/CLionProjects/usb_reset -B/home/solaire/CLionProjects/usb_reset/cmake-build-debug
+  command = /snap/clion/248/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/solaire/usb-adapter-reset-linux -B/home/solaire/usb-adapter-reset-linux/cmake-build-debug
   description = Re-running CMake...
   generator = 1
 

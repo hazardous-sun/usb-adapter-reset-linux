@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "usb_reset::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-usb_reset-Debug-49cb132115c0737f6984.json",
+					"jsonFile" : "target-usb_reset-Debug-8bf217c096409d47e44a.json",
 					"name" : "usb_reset",
 					"projectIndex" : 0
 				}
@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/solaire/CLionProjects/usb_reset/cmake-build-debug",
-		"source" : "/home/solaire/CLionProjects/usb_reset"
+		"build" : "/home/solaire/usb-adapter-reset-linux/cmake-build-debug",
+		"source" : "/home/solaire/usb-adapter-reset-linux"
 	},
 	"version" : 
 	{
