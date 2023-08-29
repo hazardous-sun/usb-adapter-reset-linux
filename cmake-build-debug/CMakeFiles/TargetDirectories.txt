@@ -1,3 +1,0 @@
-/home/solaire/usb-adapter-reset-linux/cmake-build-debug/CMakeFiles/usb_reset.dir
-/home/solaire/usb-adapter-reset-linux/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/solaire/usb-adapter-reset-linux/cmake-build-debug/CMakeFiles/rebuild_cache.dir
