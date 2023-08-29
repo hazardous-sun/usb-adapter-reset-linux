@@ -21,7 +21,7 @@ if test -f "$SHORTCUT_MANUAL_SCRIPT"; then
   echo "Manual adapter reset added to the CLI"
 fi
 
-# Triggers if a path was provided
+# Triggers if a path was provided as a parameter
 if test -f "$1"; then
   PROJECT_PATH="$1/wifi_check_adapter_reset"
   echo "Path used by the project: $PROJECT_PATH"
