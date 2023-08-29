@@ -9,14 +9,18 @@ while true; do
   # Replace for the name of your Wi-Fi USB Adapter
   DEVICE_NAME="RTL88x2bu"
 
+  # Gets the current USB bus and port of the adapter
   CURRENT_USB_BUS=$(lsusb | grep "$DEVICE_NAME" | awk '{print $2}')
   CURRENT_USB_PORT=$(lsusb | grep "$DEVICE_NAME" | awk '{print $4}')
 
+  # Defines the path for adapter
   USB_PATH="/dev/bus/usb/$CURRENT_USB_BUS/$CURRENT_USB_PORT"
+
+  # Defines the path to the log file and to the script used to determine if the log needs to be reduced or not
   LOG_FILE="$SCRIPT_DIR/reset_script.log"
   LOG_REDUCE_SCRIPT="$SCRIPT_DIR/reduce_log.sh"
 
-  # Get WiFi device status | Replace "wlx90de80ae8d61" with the name of your Wi-Fi adapter
+  # Gets WiFi device status | Replace "wlx90de80ae8d61" with the name of your Wi-Fi adapter
   wifi_status=$(nmcli device show wlx90de80ae8d61 | awk -F": " '/GENERAL.STATE/ {gsub(/^[ \t]+|[()0-9]+/,"",$2); sub(/^[ \t]+/, "", $2); print $2}')
 
   if [ "$wifi_status" == "connected" ]; then
@@ -45,5 +49,5 @@ while true; do
     *) echo "$(date): Unknown error occurred" >> "$LOG_FILE" ;;
   esac
 
-  sleep 120 # Wait for 2 minutes
+  sleep 120 # Waits for 2 minutes
 done
