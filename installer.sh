@@ -9,6 +9,8 @@ fi
 # Gets the current path of the script
 SCRIPT_DIR=$(dirname "$0")
 
+gcc usb_reset.c -o usb_reset
+
 # Tries to get the path of the manual reset script
 SHORTCUT_MANUAL_SCRIPT="$SCRIPT_DIR/adapter_reset.sh"
 
@@ -22,11 +24,15 @@ fi
 if test -f "$1"; then
   PROJECT_PATH="$1/wifi_check_adapter_reset"
 else
+  # Sets "/home/USER/wifi_check_adapter_reset" as path
   PROJECT_PATH="$HOME/wifi_check_adapter_reset"
 fi
 
 # Creates the "wifi_check_adapter_reset" directory that will be used to store the scripts and log files
 mkdir "$PROJECT_PATH"
+
+cp wifi_check.sh reduce_log.sh usb_reset README.md "$PROJECT_PATH"
+
 
 # Gets the path of the
 PROGRAM_PATH="$PROJECT_PATH/wifi_check.sh"
