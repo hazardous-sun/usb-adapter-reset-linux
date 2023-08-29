@@ -6,9 +6,11 @@ while true; do
   SCRIPT_DIR=$(dirname "$0")
   USB_RESET_SCRIPT="$SCRIPT_DIR/usb_reset"
 
-  # Replace "RTL88x2bu" with the name of the device you want to reset
-  CURRENT_USB_BUS=$(lsusb | grep RTL88x2bu | awk '{print $2}')
-  CURRENT_USB_PORT=$(lsusb | grep RTL88x2bu | awk '{print $4}')
+  # Replace for the name of your Wi-Fi USB Adapter
+  DEVICE_NAME="RTL88x2bu"
+
+  CURRENT_USB_BUS=$(lsusb | grep "$DEVICE_NAME" | awk '{print $2}')
+  CURRENT_USB_PORT=$(lsusb | grep "$DEVICE_NAME" | awk '{print $4}')
 
   USB_PATH="/dev/bus/usb/$CURRENT_USB_BUS/$CURRENT_USB_PORT"
   LOG_FILE="$SCRIPT_DIR/reset_script.log"
