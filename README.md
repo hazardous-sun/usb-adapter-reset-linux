@@ -8,6 +8,19 @@ This script was developed as a workaround for a USB Wi-Fi adapter that was not w
 
 The bash script checks for a specified USB device name that can be edited in the variable CURRENT_USB_BUS and CURRENT_USB_PORT inside [wifi_check.sh](wifi_check.sh).
 
+## Automated configuration
+
+The `installer.sh` script needs to run as superuser in order to create the required `.service` files.
+
+You can run the following commands to install the script:
+```
+chmod +x installer.sh
+sudo ./installer.sh
+reboot
+```
+
+## Manual configuration
+
 ### Add it to the CLI commands
 
 Run the following command to add the script to your CLI:
